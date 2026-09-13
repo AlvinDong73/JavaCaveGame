@@ -118,6 +118,7 @@ public class Main {
                         // Charge the next attack this combat
                         case "4":
                             player.setCharging(true);
+                            System.out.println("Player " + player.getId() + " charges their next attack.");
                             break;
 
                         default:
