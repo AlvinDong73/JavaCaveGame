@@ -18,6 +18,24 @@ use forEach to replace a bulky for loop. One situation where I could see myself 
 instead of a conventional for loop is if I need to do some complex operations item-wise on a list and then
 do something with the individual items.
 
+Program Modification:
+
+I added the ability for the player to charge an attack, and after the player has charged up,
+their next attack will deal double damage. I wanted to add more variety to what actions the
+player could take, so a buffing action seemed like a good idea to add, especially since
+the player already can choose to attack, guard, or use a potion. To implement this, I changed
+both Player.java and Game.java. I added an instance variable called charged to Player.java and a
+setter for that variable in order to have the Player objects remember if they are charged or not,
+and I modified attack() so that it returns the correct amount of damage if the player was charged
+and removes the charged state if the damage should be doubled. I also modified Main.java in 2 ways:
+I added the option for the player to charge up an attack in the switch case statement that handles
+player action (and also displayed that action as a possible action to take) and used a forEach loop
+that runs at the end of combat to uncharge any player that was still charged at end of combat.
+A major challenge I had while working on this assignment was figuring out how the main game loop
+worked so I could insert my code to reset the charged state at the right spot. While the code itself
+was documented, there are a lot of nested loops so it was extremely crucial to find the right loop
+to reset the charged state.
+
 Sources:
 [1] Java ArrayList forEach() Method. W3Schools. https://www.w3schools.com/java/ref_arraylist_foreach.asp
 [2] Lambda Expressions. Oracle Java Documentation. https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
