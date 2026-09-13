@@ -14,17 +14,37 @@ public class Player extends Character {
     // Damage dealt when attacking
     private int weaponDamage;
 
+    // Whether or not this character is charging up an attack
+    private boolean charging;
+
     // Creates a new player with starting stats
     public Player(int hp) {
         super(hp);
         this.id = NEXT_PLAYER_ID++;
         this.potions = 2;
+        // initialize charging state to false
+        this.charging = false;
         this.weaponDamage = 4; // Starter weapon damage
     }
 
     // Returns the damage dealt by an attack
     public int attack() {
-        return weaponDamage;
+        // restructured to handle charging damage boost
+        // If player charged on a previous turn, 
+        // then this attack will
+        // do double damage and take you out of this
+        // charged state
+        int damage = weaponDamage;
+        if (charging) {
+            damage *= 2;
+            setCharging(false);
+        }
+        return damage;
+    }
+
+    // Method to set the charge state
+    public void setCharging(boolean charging) {
+        this.charging = charging;
     }
 
     // Uses a healing potion to restore random HP

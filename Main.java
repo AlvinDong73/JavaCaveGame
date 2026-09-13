@@ -80,6 +80,8 @@ public class Main {
                     System.out.println("1) Attack");
                     System.out.println("2) Defend");
                     System.out.println("3) Use Healing Potion");
+                    // Let the user know they can charge an attack
+                    System.out.println("4) Charge Up Next Attack");
                     System.out.print("> ");
 
                     String choice = scanner.nextLine();
@@ -111,6 +113,11 @@ public class Main {
 
                         case "3":
                             player.usePotion();
+                            break;
+                        
+                        // Charge the next attack this combat
+                        case "4":
+                            player.setCharging(true);
                             break;
 
                         default:
@@ -194,6 +201,9 @@ public class Main {
                 default:
                     System.out.println("No reward gained.");
             }
+
+            // Reset player charging state at end of combat
+            players.forEach(p -> p.setCharging(false));
 
             round++;
         }
