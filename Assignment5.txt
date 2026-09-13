@@ -34,7 +34,7 @@ that runs at the end of combat to uncharge any player that was still charged at 
 A major challenge I had while working on this assignment was figuring out how the main game loop
 worked so I could insert my code to reset the charged state at the right spot. While the code itself
 was documented, there are a lot of nested loops so it was extremely crucial to find the right loop
-to reset the charged state.
+in which I could reset the charged state without breaking the logic for charging an attack.
 
 Sources:
 [1] Java ArrayList forEach() Method. W3Schools. https://www.w3schools.com/java/ref_arraylist_foreach.asp
