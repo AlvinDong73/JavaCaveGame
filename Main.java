@@ -1,3 +1,5 @@
+// Author: Alvin Dong
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;

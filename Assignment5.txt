@@ -1,0 +1,23 @@
+What I learned:
+
+I saw several instances of a forEach method being called on an ArrayList in places
+where a for loop could do the same The type of the parameter passed into
+this ArrayList.forEach method is a "Consumer<T>" where T is the type of the objects
+that the ArrayList contains. What ArrayList.forEach ends up doing is calling the given
+Consumer on each individual element of the ArrayList [1].
+For instance, the variable players (which is an ArrayList that
+contains objects of the type Player) has forEach called on it in the line
+
+players.forEach(p -> p.heal(1));
+
+and inside the parentheses of the forEach call, p -> p.heal(1) satisfies the type of the argument
+that ArrayList.forEach requires. This p -> p.heal(1) is a lambda expression [2], and counts as a
+Consumer that accepts a Player object in terms of the players.forEach call because the lambda
+expression accepts a Player object and returns nothing (Player.heal has a void return type). You would
+use forEach to replace a bulky for loop. One situation where I could see myself using a forEach loop
+instead of a conventional for loop is if I need to do some complex operations item-wise on a list and then
+do something with the individual items.
+
+Sources:
+[1] Java ArrayList forEach() Method. W3Schools. https://www.w3schools.com/java/ref_arraylist_foreach.asp
+[2] Lambda Expressions. Oracle Java Documentation. https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html
